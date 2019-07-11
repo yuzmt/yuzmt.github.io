@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="let1、let来声明变量，不会变量提升12let a = 10;console.log(window.a) //undefined  2、let加强了作用域的控制3、let {} =&amp;gt; 块级作用域临时死区：只要let在{}内定义了变量，就称霸了，不会再找{}外的相同变量 这个{}，如：if(){},for(){} 1234567891011121314&amp;#123;    let a = 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6-let&#x2F;const">
 <meta property="og:url" content="http://yoursite.com/2019/07/11/ES6-let-const/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="let1、let来声明变量，不会变量提升12let a = 10;console.log(window.a) //undefined  2、let加强了作用域的控制3、let {} =&amp;gt; 块级作用域临时死区：只要let在{}内定义了变量，就称霸了，不会再找{}外的相同变量 这个{}，如：if(){},for(){} 1234567891011121314&amp;#123;    let a = 1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-11T12:10:02.505Z">
+<meta property="og:updated_time" content="2019-07-11T12:40:45.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6-let&#x2F;const">
+<meta name="twitter:description" content="let1、let来声明变量，不会变量提升12let a = 10;console.log(window.a) //undefined  2、let加强了作用域的控制3、let {} =&amp;gt; 块级作用域临时死区：只要let在{}内定义了变量，就称霸了，不会再找{}外的相同变量 这个{}，如：if(){},for(){} 1234567891011121314&amp;#123;    let a = 1">
 
 
 
@@ -296,7 +299,20 @@
       
 
       
-        
+        <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><h4 id="1、let来声明变量，不会变量提升"><a href="#1、let来声明变量，不会变量提升" class="headerlink" title="1、let来声明变量，不会变量提升"></a>1、let来声明变量，不会变量提升</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 10;</span><br><span class="line">console.log(window.a) //undefined</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、let加强了作用域的控制"><a href="#2、let加强了作用域的控制" class="headerlink" title="2、let加强了作用域的控制"></a>2、let加强了作用域的控制</h4><h4 id="3、let-gt-块级作用域"><a href="#3、let-gt-块级作用域" class="headerlink" title="3、let {} =&gt; 块级作用域"></a>3、let {} =&gt; 块级作用域</h4><p>临时死区：只要let在{}内定义了变量，就称霸了，不会再找{}外的相同变量</p>
+<p>这个{}，如：if(){},for(){}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let a = 10;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a) //error</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let b = 10;</span><br><span class="line">&#123;</span><br><span class="line">    console.log(b); //error 而且下面的console也不会执行了，如果把该句注释，则输出20</span><br><span class="line">    let b = 20;</span><br><span class="line">    &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>常量 （定义之后，不可变）</p>
+<pre><code>    const PI = 20;
+如果想 PI = 30 来改变，则会报错</code></pre><h4 id="1、存储常量的空间里面的值不可改变"><a href="#1、存储常量的空间里面的值不可改变" class="headerlink" title="1、存储常量的空间里面的值不可改变"></a>1、存储常量的空间里面的值不可改变</h4><pre><code>    const PI = {};
+PI.name = &apos;zz&apos;;
+
+此时不会报错，因为改变的是{}的空间</code></pre><h4 id="2、const剩下内容基本和let差不多"><a href="#2、const剩下内容基本和let差不多" class="headerlink" title="2、const剩下内容基本和let差不多"></a>2、const剩下内容基本和let差不多</h4><p>const =&gt; {} 也会有临时死区</p>
+<p>PS：  var let不要混合使用<br>      var尽量用const替代，其次选择let</p>
+
       
     </div>
     
@@ -380,8 +396,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -423,6 +448,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-number">1.</span> <span class="nav-text">let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、let来声明变量，不会变量提升"><span class="nav-number">1.1.</span> <span class="nav-text">1、let来声明变量，不会变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、let加强了作用域的控制"><span class="nav-number">1.2.</span> <span class="nav-text">2、let加强了作用域的控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、let-gt-块级作用域"><span class="nav-number">1.3.</span> <span class="nav-text">3、let {} =&gt; 块级作用域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">2.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、存储常量的空间里面的值不可改变"><span class="nav-number">2.1.</span> <span class="nav-text">1、存储常量的空间里面的值不可改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、const剩下内容基本和let差不多"><span class="nav-number">2.2.</span> <span class="nav-text">2、const剩下内容基本和let差不多</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
