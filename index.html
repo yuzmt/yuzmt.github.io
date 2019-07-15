@@ -229,6 +229,207 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/ES6-destructuring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/ES6-destructuring/" itemprop="url">ES6-destructuring</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T11:06:32+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="destructuring-解构-这个单词本身的意思是破坏"><a href="#destructuring-解构-这个单词本身的意思是破坏" class="headerlink" title="destructuring(解构[这个单词本身的意思是破坏])"></a>destructuring(解构[这个单词本身的意思是破坏])</h3><blockquote>
+<p>  目的：为了快速拿到某个值，简化代码量</p>
+</blockquote>
+<hr>
+<h4 id="解构对象"><a href="#解构对象" class="headerlink" title="解构对象"></a>解构对象</h4><pre><code>let obj = {
+    name:&apos;zhang&apos;,
+    age:18
+};
+({name,age} = obj) //name : &apos;zhang&apos;     age:18
+
+//或者  效果是一样的
+let {name,age} = obj;</code></pre><p>看着变量的名称都是一样的，很难受，我们也可以这样做:</p>
+<pre><code>let {name:oName,age:oAge} = obj;
+console.log(oName,oAge) //zhang 18</code></pre><hr>
+<h4 id="默认赋值"><a href="#默认赋值" class="headerlink" title="默认赋值"></a>默认赋值</h4><pre><code>let obj = {
+    name: &apos;zhang&apos;,
+    age: 18
+};
+let {name, age, sex = &apos;female&apos;} = obj; 
+//此时sex的值为&apos;female&apos;
+
+//如果
+let obj = {
+    name: &apos;zhang&apos;,
+    age: 18，
+    sex: &apos;male&apos;
+};
+let {name, age, sex = &apos;female&apos;} = obj;
+//此时sex的值就为&apos;male&apos;</code></pre><p>类似的例子也有：</p>
+<pre><code>function sum(a = 10,b = 20) {
+    return a + b;
+}
+sum(1) //返回的是21
+//这边只是给    a   赋值了1，并没有给  b   赋值，则拿到 b 的默认值</code></pre><hr>
+<h3 id="结构数组（数组的本质是对象）"><a href="#结构数组（数组的本质是对象）" class="headerlink" title="结构数组（数组的本质是对象）"></a>结构数组（数组的本质是对象）</h3><pre><code>let arr = [1, 2, 3];
+let {
+    x,
+    y,
+    z
+} = arr;
+console.log(x, y, z)
+//undefined undefined undefined
+
+// 别忘了，数组的本质是对象
+let {
+    0: x,
+    1: y,
+    2: z
+} = arr;
+console.log(x, y, z) // 1 2 3
+
+// 如果写成对象的形式觉得比较麻烦的话，其实&apos;化妆&apos;成arr认识的人就好啦
+let [x, y, z] = arr;
+console.log(x, y, z) // 1 2 3
+
+
+//我们也可以得到该数组的长度
+let {length} = arr;
+console.log(length) // 3</code></pre><hr>
+<h3 id="价值体现"><a href="#价值体现" class="headerlink" title="价值体现"></a>价值体现</h3><blockquote>
+<p>  复杂数据里面需要分开操作的时候，此时    <code style="color:orange">解构</code>    就非常有用</p>
+</blockquote>
+<p>一个对象或者数组里往往会有很多个值，但是这些值又不一定能够全部用上，所以我们可以挑选出我们需要的数据</p>
+<pre><code>let arr = [1, 2, 3, name:&apos;zhang&apos;];
+let [,,, {name}] = arr;
+//将前三个值放空，不要这么多
+
+
+  let oJson = &apos;{&quot;a&quot;:&quot;你&quot;, &quot;b&quot;:&quot;好&quot;, &quot;c&quot;:&quot;世&quot;,&quot;d&quot;:&quot;界&quot;}&apos;;
+    let oRes = JSON.parse(oJson);
+    // 获取到数据的两个方式
+    // 1、原生js的方式
+    let oA = oRes.a;
+    let oB = oRes.b;
+    let oC = oRes.c;
+    let oD = oRes.d;
+    // 2、利用解构的方式
+    let {
+        a,
+        b,
+        c,
+        d
+    } = oRes;</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/12/ES6-speed-rest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -726,7 +927,7 @@ PI.name = &apos;zz&apos;;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
