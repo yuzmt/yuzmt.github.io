@@ -229,6 +229,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/12/ES6-speed-rest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/12/ES6-speed-rest/" itemprop="url">ES6-speed/rest</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-12T10:33:42+08:00">
+                2019-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、…展开&amp;收集运算符<br>    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑<br>        写：function test(…arg){};test(1,2,3);-收集作用</p>
+<pre><code> function sum(...arg) {
+    let sumNumber = 0;
+    // console.log(arg.sort()) //可以直接arg.sort()排序或者arg.pop()等操作
+    arg.forEach(function(ele) {
+        sumNumber += ele
+    });
+    return sumNumber;
+    console.log(arg) //此时的arg[1,2,3]
+}
+sum(1, 2, 3) //sumNumber = 6
+sum(2, 5, 3, 7) //sumNumber = 17</code></pre><p>  读：<br></p>
+<pre><code>var arg = [1,2,3];
+console.log(...arg);//1,2,3
+
+//我门可以利用这个属性，将两个数组合并在一个里面
+let arr1 = [1,2,3];
+let arr2 = [4,5,6];
+let newArr = [...arr1,...arr2] //此时的newArr = [1,2,3,4,5,6]
+//相当于原生js里面的contact</code></pre><p>-展开作用</p>
+<p> 作用：简化书写长度，提升开发效率</p>
+<p>2、ES6/ES7:<br><br>    ES6可以处理数组，ES7能处理对象</p>
+<pre><code>    let company = {
+        name: &apos;hand&apos;,
+        age: 20
+    };
+    let department = {
+        staff: {
+            name: &apos;zhang&apos;,
+            age: 18
+        },
+        staffNum: 30
+
+    }
+    let obj = {
+        ...company,
+        ...department
+    }
+//此时我们可以得到想要的结果（具体显示结果自己敲一下）但是存在一个问题，
+如果通过 obj.staff.age = 19 来修改属性，obj对象变得同时，staff 里面的值也会跟这变。
+
+//修改方式
+ let company = {
+        name: &apos;hand&apos;,
+        age: 20
+    };
+*     let staff = {
+        name: &apos;zhang&apos;,
+        age: 18
+    }
+    let department = {
+        staff: {
+            ...staff
+        },
+        staffNum: 30
+
+    }
+    let obj = {
+        ...company,
+        ...department
+    }
+
+//此时 obj.staff.age 修改的时候，department.staff.age 也是跟着变的，但是 staff.age 的值是不变的</code></pre><hr>
+<p>如果</p>
+<pre><code>let obj = {
+      ...company,
+      ...department,
+      age: 40    //此时这个age会覆盖上面 company.age这个属性
+  } </code></pre><hr>
+<p>借着这个特性可以进行    <code style="color:orange">深克隆</code>    这个操作<br><br>PS:但这个方法的深克隆只适合浅层次的，如果leader里面再嵌套对象，这样一层一层嵌套下去就会非常的麻烦</p>
+<pre><code>  let obj = {
+        ...company,
+        ...department,
+        leader:{
+            ...leader
+    }
+//此时obj.leader改动，既不影响leader本身，也不会影响department.leader</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/ES6-let-const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,7 +726,7 @@ PI.name = &apos;zz&apos;;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
