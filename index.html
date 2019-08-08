@@ -229,6 +229,315 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/react-父子组件之间传值的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/react-父子组件之间传值的问题/" itemprop="url">react-井字小游戏总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T14:15:59+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="父子组件之间是如何传值的"><a href="#父子组件之间是如何传值的" class="headerlink" title="父子组件之间是如何传值的"></a>父子组件之间是如何传值的</h3><p>在 react 的中文文档中,有一个井字格游戏的练习,以这个为例:</p>
+<p>这个 demo 里面有一个 Board 和一个 Square 的组件</p>
+<p><strong>Board</strong> - 父组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;Square value=&#123;i&#125; /&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">        	&lt;div&gt;</span><br><span class="line">            	&lt;div className="board-row"&gt;</span><br><span class="line">                    &#123;this.renderSquare(0)&#125;</span><br><span class="line">                    &#123;this.renderSquare(1)&#125;</span><br><span class="line">                    &#123;this.renderSquare(2)&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                //...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Square</strong> - 子组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Component</span>() </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">        	&lt;button&gt;</span><br><span class="line">            	&#123;<span class="keyword">this</span>.props.value&#125;</span><br><span class="line">            &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>父组件通过 <strong>props</strong> 向子组件传值, 所以当子组件向父组件取值的时候,需要通过 <strong>this.props</strong> , this.props.<strong>value</strong> 里面的这个value 是定义在父组件中的子组件(Square)身上的,所以才能获取到</p>
+<hr>
+<h3 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h3><p>这个井字格游戏需要把 9 个 Square 的值放在一个地方,以此来判断出胜利者</p>
+<p><strong>当遇到需要同时获取多个子组件数据,或者连个组件之间需要相互通信的情况时,需要把子组件的 state 数据提升至其 <code style="color:orange">共同的</code> 父组件中保存</strong></p>
+<p><strong>之后父组件可以通过 props 将数据状态传递到子组件当中, 这样应用当中所有组件的状态数据就能够更方便地同步共享了</strong></p>
+<p><img src="imgs/jingzigame.png" alt="jingzigame"></p>
+<p>下面的代码中, 从 Board 组件向 Square 组件中传递了两个 props 参数: value 和 onClick</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Board.js</span></span><br><span class="line">renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Square </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.square[i]&#125;</span><br><span class="line">                onClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; </span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>   当一个组件需要向父组件取值的时候, 就为其添上构造函数</p>
+   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;	<span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">&gt;	    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">&gt;	        <span class="keyword">super</span>(props);</span><br><span class="line">&gt;	        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">&gt;	            square: <span class="built_in">Array</span>(<span class="number">9</span>).fill(<span class="literal">null</span>)</span><br><span class="line">&gt;	        &#125;</span><br><span class="line">&gt;	    &#125;</span><br><span class="line">&gt;	&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<h3 id="不可变性在-react-中非常重要"><a href="#不可变性在-react-中非常重要" class="headerlink" title="不可变性在 react 中非常重要"></a>不可变性在 react 中非常重要</h3><p>有两种改变数据的方式:</p>
+<ul>
+<li><p>直接修改变量的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player = &#123;<span class="attr">score</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'zhang'</span>&#125;;</span><br><span class="line">player.score = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// player 修改后的值为 &#123;score: 2, name: 'zhang'&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新数据替换旧数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player = &#123;<span class="attr">score</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'zhang'</span>&#125;;</span><br><span class="line"><span class="comment">//通过 Object.assign 方法,将player和&#123;score: 2&#125; 两个对象合并了到了空的对象中,同名属性的值会被后者的属性值替换掉</span></span><br><span class="line"><span class="keyword">var</span> newPlayer = <span class="built_in">Object</span>.assign(&#123;&#125;, player, &#123;<span class="attr">score</span>:<span class="number">2</span>&#125;)</span><br><span class="line"><span class="comment">//newPlayer &#123;score: 2, name: 'zhang'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以这样写:</span></span><br><span class="line"><span class="keyword">var</span> newPlayer = &#123;...player, <span class="attr">score</span>: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<hr>
+<p>有几点我们是需要注意的:</p>
+<ul>
+<li>state 对于每个组件来说都是私有的,所以不能直接通过子组件 Square 来更新 父组件的 Board 中的 state </li>
+<li>在 React 中，有一个命名规范，通常会将代表事件的监听 prop 命名为 <code>on[Event]</code>，将处理事件的监听方法命名为 <code>handle[Event]</code> 这样的格式。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/react-井字小游戏总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/react-井字小游戏总结/" itemprop="url">react-井字小游戏总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T14:15:59+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="父子组件之间是如何传值的"><a href="#父子组件之间是如何传值的" class="headerlink" title="父子组件之间是如何传值的"></a>父子组件之间是如何传值的</h3><p>在 react 的中文文档中,有一个井字格游戏的练习,以这个为例:</p>
+<p>这个 demo 里面有一个 Board 和一个 Square 的组件</p>
+<p><strong>Board</strong> - 父组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;Square value=&#123;i&#125; /&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">        	&lt;div&gt;</span><br><span class="line">            	&lt;div className="board-row"&gt;</span><br><span class="line">                    &#123;this.renderSquare(0)&#125;</span><br><span class="line">                    &#123;this.renderSquare(1)&#125;</span><br><span class="line">                    &#123;this.renderSquare(2)&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                //...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Square</strong> - 子组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Component</span>() </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">        	&lt;button&gt;</span><br><span class="line">            	&#123;<span class="keyword">this</span>.props.value&#125;</span><br><span class="line">            &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>父组件通过 <strong>props</strong> 向子组件传值, 所以当子组件向父组件取值的时候,需要通过 <strong>this.props</strong> , this.props.<strong>value</strong> 里面的这个value 是定义在父组件中的子组件(Square)身上的,所以才能获取到</p>
+<hr>
+<h4 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h4><p>这个井字格游戏需要把 9 个 Square 的值放在一个地方,以此来判断出胜利者</p>
+<p><strong>当遇到需要同时获取多个子组件数据,或者连个组件之间需要相互通信的情况时,需要把子组件的 state 数据提升至其 <code style="color:orange">共同的</code> 父组件中保存</strong></p>
+<p><strong>之后父组件可以通过 props 将数据状态传递到子组件当中, 这样应用当中所有组件的状态数据就能够更方便地同步共享了</strong></p>
+<p><img src="imgs/jingzigame.png" alt="jingzigame"></p>
+<p>11    向这个井字游戏, 我们就需要将状态提升至 <strong>Board</strong> 和 <strong>Square</strong> 共同的父组件 <strong>Game</strong> 中</p>
+<p>下面的代码</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Board.js</span></span><br><span class="line">renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Square </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.square[i]&#125;</span><br><span class="line">                onClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; </span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>   当一个组件需要向父组件取值的时候, 就为其添上构造函数</p>
+   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;	<span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">&gt;	    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">&gt;	        <span class="keyword">super</span>(props);</span><br><span class="line">&gt;	        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">&gt;	            square: <span class="built_in">Array</span>(<span class="number">9</span>).fill(<span class="literal">null</span>)</span><br><span class="line">&gt;	        &#125;</span><br><span class="line">&gt;	    &#125;</span><br><span class="line">&gt;	&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<p>有几点我们是需要注意的:</p>
+<ul>
+<li>state 对于每个组件来说都是私有的,所以不能直接通过子组件 Square 来更新 父组件的 Board 中的 state </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/export-与-export-default-的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1332,7 +1641,7 @@ PI.name = &apos;zz&apos;;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
