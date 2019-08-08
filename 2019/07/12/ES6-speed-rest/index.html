@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑        写：function test(…arg){};test(1,2,3);-收集作用  function sum(...arg) {     let sumNumber = 0;     // console.log(arg.sort()) //可以直接arg.sort()排序或者arg">
+<meta name="description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑 写：      function test(...arg){};     test(1,2,3);-收集作用      function sum(...arg) {         let sumNumber = 0;         // console.log(arg.sort()) //可以直">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6-speed&#x2F;rest">
 <meta property="og:url" content="http://yoursite.com/2019/07/12/ES6-speed-rest/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑        写：function test(…arg){};test(1,2,3);-收集作用  function sum(...arg) {     let sumNumber = 0;     // console.log(arg.sort()) //可以直接arg.sort()排序或者arg">
+<meta property="og:description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑 写：      function test(...arg){};     test(1,2,3);-收集作用      function sum(...arg) {         let sumNumber = 0;         // console.log(arg.sort()) //可以直">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-15T02:58:18.677Z">
+<meta property="og:updated_time" content="2019-07-24T10:55:20.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6-speed&#x2F;rest">
-<meta name="twitter:description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑        写：function test(…arg){};test(1,2,3);-收集作用  function sum(...arg) {     let sumNumber = 0;     // console.log(arg.sort()) //可以直接arg.sort()排序或者arg">
+<meta name="twitter:description" content="1、…展开&amp;amp;收集运算符    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑 写：      function test(...arg){};     test(1,2,3);-收集作用      function sum(...arg) {         let sumNumber = 0;         // console.log(arg.sort()) //可以直">
 
 
 
@@ -299,18 +299,23 @@
       
 
       
-        <p>1、…展开&amp;收集运算符<br>    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑<br>        写：function test(…arg){};test(1,2,3);-收集作用</p>
-<pre><code> function sum(...arg) {
-    let sumNumber = 0;
-    // console.log(arg.sort()) //可以直接arg.sort()排序或者arg.pop()等操作
-    arg.forEach(function(ele) {
-        sumNumber += ele
-    });
-    return sumNumber;
-    console.log(arg) //此时的arg[1,2,3]
-}
-sum(1, 2, 3) //sumNumber = 6
-sum(2, 5, 3, 7) //sumNumber = 17</code></pre><p>  读：<br></p>
+        <p>1、…展开&amp;收集运算符<br>    此运算符在不同地方使用有不同的功效，可以从写和读两个角度考虑</p>
+<pre><code>写：
+
+    function test(...arg){};
+    test(1,2,3);-收集作用
+
+    function sum(...arg) {
+        let sumNumber = 0;
+        // console.log(arg.sort()) //可以直接arg.sort()排序或者arg.pop()等操作
+        arg.forEach(function(ele) {
+            sumNumber += ele
+        });
+        return sumNumber;
+        console.log(arg) //此时的arg[1,2,3]
+    }
+    sum(1, 2, 3) //sumNumber = 6
+    sum(2, 5, 3, 7) //sumNumber = 17</code></pre><p>  读：<br></p>
 <pre><code>var arg = [1,2,3];
 console.log(...arg);//1,2,3
 
@@ -479,7 +484,7 @@ let newArr = [...arr1,...arr2] //此时的newArr = [1,2,3,4,5,6]
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
