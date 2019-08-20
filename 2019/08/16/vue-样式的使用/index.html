@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="destructuring(解构[这个单词本身的意思是破坏])   目的：为了快速拿到某个值，简化代码量   解构对象let obj = {     name:&amp;apos;zhang&amp;apos;,     age:18 }; ({name,age} = obj) //name : &amp;apos;zhang&amp;apos;     age:18  //或者  效果是一样的 let {name,age} =">
+<meta name="description" content="在 Vue 中样式的使用使用 class 样式 数组  1&amp;lt;h1 :class=&amp;quot;[&amp;apos;title&amp;apos;,&amp;apos;title-color&amp;apos;]&amp;quot;&amp;gt;ToDoList&amp;lt;/h1&amp;gt;   在数组中使用三元表达式 当 active 的值为真的时候, 添加 title-color 这个类名, 否则去除   1234567891011&amp;lt;h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6-destructuring">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/ES6-destructuring/index.html">
+<meta property="og:title" content="vue - 样式的使用">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/vue-样式的使用/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="destructuring(解构[这个单词本身的意思是破坏])   目的：为了快速拿到某个值，简化代码量   解构对象let obj = {     name:&amp;apos;zhang&amp;apos;,     age:18 }; ({name,age} = obj) //name : &amp;apos;zhang&amp;apos;     age:18  //或者  效果是一样的 let {name,age} =">
+<meta property="og:description" content="在 Vue 中样式的使用使用 class 样式 数组  1&amp;lt;h1 :class=&amp;quot;[&amp;apos;title&amp;apos;,&amp;apos;title-color&amp;apos;]&amp;quot;&amp;gt;ToDoList&amp;lt;/h1&amp;gt;   在数组中使用三元表达式 当 active 的值为真的时候, 添加 title-color 这个类名, 否则去除   1234567891011&amp;lt;h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-17T10:28:54.986Z">
+<meta property="og:updated_time" content="2019-08-16T12:45:11.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6-destructuring">
-<meta name="twitter:description" content="destructuring(解构[这个单词本身的意思是破坏])   目的：为了快速拿到某个值，简化代码量   解构对象let obj = {     name:&amp;apos;zhang&amp;apos;,     age:18 }; ({name,age} = obj) //name : &amp;apos;zhang&amp;apos;     age:18  //或者  效果是一样的 let {name,age} =">
+<meta name="twitter:title" content="vue - 样式的使用">
+<meta name="twitter:description" content="在 Vue 中样式的使用使用 class 样式 数组  1&amp;lt;h1 :class=&amp;quot;[&amp;apos;title&amp;apos;,&amp;apos;title-color&amp;apos;]&amp;quot;&amp;gt;ToDoList&amp;lt;/h1&amp;gt;   在数组中使用三元表达式 当 active 的值为真的时候, 添加 title-color 这个类名, 否则去除   1234567891011&amp;lt;h">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/ES6-destructuring/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/16/vue-样式的使用/">
 
 
 
 
 
-  <title>ES6-destructuring | Hexo</title>
+  <title>vue - 样式的使用 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/ES6-destructuring/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/vue-样式的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6-destructuring</h1>
+          <h1 class="post-title" itemprop="name headline">vue - 样式的使用</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T11:06:32+08:00">
-                2019-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-16T14:09:50+08:00">
+                2019-08-16
               </time>
             
 
@@ -299,105 +299,44 @@
       
 
       
-        <h3 id="destructuring-解构-这个单词本身的意思是破坏"><a href="#destructuring-解构-这个单词本身的意思是破坏" class="headerlink" title="destructuring(解构[这个单词本身的意思是破坏])"></a>destructuring(解构[这个单词本身的意思是破坏])</h3><blockquote>
-<p>  目的：为了快速拿到某个值，简化代码量</p>
-</blockquote>
-<hr>
-<h4 id="解构对象"><a href="#解构对象" class="headerlink" title="解构对象"></a>解构对象</h4><pre><code>let obj = {
-    name:&apos;zhang&apos;,
-    age:18
-};
-({name,age} = obj) //name : &apos;zhang&apos;     age:18
+        <h3 id="在-Vue-中样式的使用"><a href="#在-Vue-中样式的使用" class="headerlink" title="在 Vue 中样式的使用"></a>在 Vue 中样式的使用</h3><h6 id="使用-class-样式"><a href="#使用-class-样式" class="headerlink" title="使用 class 样式"></a>使用 class 样式</h6><ul>
+<li>数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :class=&quot;[&apos;title&apos;,&apos;title-color&apos;]&quot;&gt;ToDoList&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
 
-//或者  效果是一样的
-let {name,age} = obj;</code></pre><p>看着变量的名称都是一样的，很难受，我们也可以这样做:</p>
-<pre><code>let {name:oName,age:oAge} = obj;
-console.log(oName,oAge) //zhang 18</code></pre><blockquote>
-<p>  当变量没有同名的属性时，导致取不到值，最后返回undefined</p>
-</blockquote>
-<pre><code>let { bar, foo } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
-foo // &quot;aaa&quot;
-bar // &quot;bbb&quot;
+<ul>
+<li><p>在数组中使用三元表达式</p>
+<p>当 active 的值为真的时候, 添加 title-color 这个类名, 否则去除</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :class=&quot;[&apos;title&apos;,active ? &apos;title-color&apos; : &apos;&apos;]&quot;&gt;todolist&lt;/h1&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var vm = new Vue(&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">            data() &#123;</span><br><span class="line">                return &#123;</span><br><span class="line">                    active: false</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-let { baz } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
-baz // undefined</code></pre><hr>
-<h4 id="默认赋值"><a href="#默认赋值" class="headerlink" title="默认赋值"></a>默认赋值</h4><pre><code>let obj = {
-    name: &apos;zhang&apos;,
-    age: 18
-};
-let {name, age, sex = &apos;female&apos;} = obj; 
-//此时sex的值为&apos;female&apos;
+<ul>
+<li><p>数组中嵌套对象</p>
+<p>同样是当 active 的值为真的时候, 添加上 title-color 这个类名</p>
+<p>一般使用对象替代三元表达式, 提高代码的可读性</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :class=&quot;[&apos;title&apos;,&#123;&apos;title-color&apos;:active&#125;]&quot;&gt;todolist&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
 
-//如果
-let obj = {
-    name: &apos;zhang&apos;,
-    age: 18，
-    sex: &apos;male&apos;
-};
-let {name, age, sex = &apos;female&apos;} = obj;
-//此时sex的值就为&apos;male&apos;</code></pre><p>类似的例子也有：</p>
-<pre><code>function sum(a = 10,b = 20) {
-    return a + b;
-}
-sum(1) //返回的是21
-//这边只是给    a   赋值了1，并没有给  b   赋值，则拿到 b 的默认值</code></pre><hr>
-<h3 id="结构数组（数组的本质是对象）"><a href="#结构数组（数组的本质是对象）" class="headerlink" title="结构数组（数组的本质是对象）"></a>结构数组（数组的本质是对象）</h3><pre><code>let arr = [1, 2, 3];
-let {
-    x,
-    y,
-    z
-} = arr;
-console.log(x, y, z)
-//undefined undefined undefined
+<h6 id="使用-style-样式"><a href="#使用-style-样式" class="headerlink" title="使用 style 样式"></a>使用 style 样式</h6><ul>
+<li><p>直接在元素上通过 <strong>:style</strong> 的形式, 书写样式</p>
+<p>值得注意的是, 如果属性里面包含     <strong>-</strong>    ,例如 font-size, font-family 等 , 就需要为其加上单引号</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :style=&quot;&#123;color: &apos;red&apos;,&apos;font-weight&apos;:&apos;100&apos;&#125;&quot;&gt;ToDoList&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
 
-// 别忘了，数组的本质是对象
-let {
-    0: x,
-    1: y,
-    2: z
-} = arr;
-console.log(x, y, z) // 1 2 3
+<ul>
+<li>当 style 里面的样式过多, 就显得可读性比较差, 我们也可以将样式定义到 <strong>date</strong> 中, 然后引用到 <strong>:style</strong> 即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :style=&quot;obj1&quot;&gt;ToDoList&lt;/h1&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#app&apos;,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                active: true,</span><br><span class="line">                obj1: &#123;</span><br><span class="line">                    color: &apos;red&apos;,</span><br><span class="line">                    &apos;font-weight&apos;: &apos;100&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-// 如果写成对象的形式觉得比较麻烦的话，其实&apos;化妆&apos;成arr认识的人就好啦
-let [x, y, z] = arr;
-console.log(x, y, z) // 1 2 3
+<ul>
+<li>在 <strong>:style</strong> 中通过数组, 引用多个 <strong>data</strong> 上的样式对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :style=&quot;[obj1, obj2]&quot;&gt;ToDoList&lt;/h1&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#app&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            obj1: &#123;</span><br><span class="line">                color: &apos;red&apos;,</span><br><span class="line">                &apos;font-weight&apos;: &apos;100&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            obj2: &#123;</span><br><span class="line">                &apos;text-align&apos;: &apos;center&apos;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
-//我们也可以得到该数组的长度
-let {length} = arr;
-console.log(length) // 3</code></pre><hr>
-<h3 id="价值体现"><a href="#价值体现" class="headerlink" title="价值体现"></a>价值体现</h3><p> 复杂数据里面需要分开操作的时候，此时    <code style="color:orange">解构</code>    就非常有用</p>
-<blockquote>
-<p>  一个对象或者数组里往往会有很多个值，但是这些值又不一定能够全部用上，所以我们可以挑选出我们需要的数据</p>
-</blockquote>
-<pre><code>let arr = [1, 2, 3, name:&apos;zhang&apos;];
-let [,,, {name}] = arr;
-//将前三个值放空，不要这么多
-
-
-  let oJson = &apos;{&quot;a&quot;:&quot;你&quot;, &quot;b&quot;:&quot;好&quot;, &quot;c&quot;:&quot;世&quot;,&quot;d&quot;:&quot;界&quot;}&apos;;
-    let oRes = JSON.parse(oJson);
-    // 获取到数据的两个方式
-    // 1、原生js的方式
-    let oA = oRes.a;
-    let oB = oRes.b;
-    let oC = oRes.c;
-    let oD = oRes.d;
-    // 2、利用解构的方式
-    let {
-        a,
-        b,
-        c,
-        d
-    } = oRes;</code></pre><blockquote>
-<p>  对象的解构赋值，可以很方便地讲现有对象的方法，赋值到某个变量</p>
-</blockquote>
-<pre><code>// 例一
-let { log, sin, cos } = Math;
-
-// 例二
-const { log } = console;
-log(&apos;hello&apos;) // hello</code></pre>
       
     </div>
     
@@ -421,8 +360,8 @@ log(&apos;hello&apos;) // hello</code></pre>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/ES6-speed-rest/" rel="next" title="ES6-speed/rest">
-                <i class="fa fa-chevron-left"></i> ES6-speed/rest
+              <a href="/2019/08/08/react-父子组件之间传值的问题/" rel="next" title="react-井字小游戏总结">
+                <i class="fa fa-chevron-left"></i> react-井字小游戏总结
               </a>
             
           </div>
@@ -431,8 +370,8 @@ log(&apos;hello&apos;) // hello</code></pre>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/15/ES6-箭头函数/" rel="prev" title="ES6-箭头函数">
-                ES6-箭头函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/16/vue-过滤器-生命周期等等/" rel="prev" title="vue-过滤器-生命周期">
+                vue-过滤器-生命周期 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,7 +486,7 @@ log(&apos;hello&apos;) // hello</code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#destructuring-解构-这个单词本身的意思是破坏"><span class="nav-number">1.</span> <span class="nav-text">destructuring(解构[这个单词本身的意思是破坏])</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解构对象"><span class="nav-number">1.1.</span> <span class="nav-text">解构对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认赋值"><span class="nav-number">1.2.</span> <span class="nav-text">默认赋值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构数组（数组的本质是对象）"><span class="nav-number">2.</span> <span class="nav-text">结构数组（数组的本质是对象）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#价值体现"><span class="nav-number">3.</span> <span class="nav-text">价值体现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Vue-中样式的使用"><span class="nav-number">1.</span> <span class="nav-text">在 Vue 中样式的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用-class-样式"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">使用 class 样式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用-style-样式"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">使用 style 样式</span></a></li></ol></li></ol></div>
             
 
           </div>
