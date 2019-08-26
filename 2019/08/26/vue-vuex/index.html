@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="1、vuex 是什么? vuex 是 Vue 配套的公共数据管理工具, 它可以把一些共享的数据, 保存到 vuex 中, 方便整个程序中的任何组件直接获取或修改我们的公共数据  Vuex 是为了保存组件之间共享数据而诞生的,  如果组件之间有要共享的数据, 可以直接挂载到 vuex 中, 而不必通过父子组件之间传值了, 如果组件的数据不需要共享, 此时, 这些不需要共享的私有数据, 没有必要放到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/11/hello-world/index.html">
+<meta property="og:title" content="vue-vuex">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/vue-vuex/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、vuex 是什么? vuex 是 Vue 配套的公共数据管理工具, 它可以把一些共享的数据, 保存到 vuex 中, 方便整个程序中的任何组件直接获取或修改我们的公共数据  Vuex 是为了保存组件之间共享数据而诞生的,  如果组件之间有要共享的数据, 可以直接挂载到 vuex 中, 而不必通过父子组件之间传值了, 如果组件的数据不需要共享, 此时, 这些不需要共享的私有数据, 没有必要放到">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-11T06:03:57.239Z">
+<meta property="og:updated_time" content="2019-08-26T13:55:23.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="vue-vuex">
+<meta name="twitter:description" content="1、vuex 是什么? vuex 是 Vue 配套的公共数据管理工具, 它可以把一些共享的数据, 保存到 vuex 中, 方便整个程序中的任何组件直接获取或修改我们的公共数据  Vuex 是为了保存组件之间共享数据而诞生的,  如果组件之间有要共享的数据, 可以直接挂载到 vuex 中, 而不必通过父子组件之间传值了, 如果组件的数据不需要共享, 此时, 这些不需要共享的私有数据, 没有必要放到">
 
 
 
@@ -116,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/11/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/vue-vuex/">
 
 
 
 
 
-  <title>Hello World | Hexo</title>
+  <title>vue-vuex | Hexo</title>
   
 
 
@@ -229,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/vue-vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -246,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">vue-vuex</h1>
         
 
         <div class="post-meta">
@@ -258,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-11T11:36:48+08:00">
-                2019-07-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-26T19:08:34+08:00">
+                2019-08-26
               </time>
             
 
@@ -296,25 +299,43 @@
       
 
       
-        <!-- Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+        <h6 id="1、vuex-是什么"><a href="#1、vuex-是什么" class="headerlink" title="1、vuex 是什么?"></a>1、vuex 是什么?</h6><ul>
+<li><p>vuex 是 Vue 配套的公共数据管理工具, 它可以把一些共享的数据, 保存到 vuex 中, 方便整个程序中的任何组件直接获取或修改我们的公共数据</p>
+</li>
+<li><p>Vuex 是为了保存组件之间共享数据而诞生的,  如果组件之间有要共享的数据, 可以直接挂载到 vuex 中, 而不必通过父子组件之间传值了, 如果组件的数据不需要共享, 此时, 这些不需要共享的私有数据, 没有必要放到 vuex 中</p>
+<p>也就是说, <code style="color:orange">只有共享的数据, 才有权利放到 vuex 中; 组件内部私有的数据, 只要放到组件的 data 中即可</code></p>
+</li>
+</ul>
+<h6 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h6><ul>
+<li><p>安装包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
 
-## Quick Start
 
-### Create a new post
+</li>
+</ul>
+<ul>
+<li><p>导入包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>new Vue.store() 实例, 得到一个数据仓库</p>
+<ul>
+<li>如果在组件中想要访问 <strong>store</strong> 中的数据, 只能通过  <code style="color:orange">this.$store.state.*</code> 来访问, 比如 <strong>this.$store.state.count</strong></li>
+<li>如果要操作 store 中的 state 值, 只能通过调用 <strong>mutation</strong> 提供的方法, 才能操作对应的数据, <strong>不推荐</strong> 直接操作 state 中的数据, 因为, 万一导致了数据的紊乱, 不能快速定位到错误的原因, 因为, 每个组件都可能有操作数据的方法;</li>
+<li>如果组件调用 mutation 中的方法, 只能使用 <code style="color:orange">this.$store.commit('方法名')</code> </li>
+</ul>
+<blockquote>
+<p>注意: mutation 函数的参数列表中, 最多支持两个参数</p>
+<p>参数1: 是 state 状态</p>
+<p>参数2: 通过 commit 提交过来的参数, 但是这个参数类型是什么并没有什么限定, 我们也可以传一个对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        count: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        increment(state) &#123;</span><br><span class="line">            state.count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 vuex 创建的 store 挂载到 vm 实例上, 只要挂载到了 VM 上, 任何组件都能使用 store 来存取数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    render: <span class="function"><span class="params">c</span> =&gt;</span> c(App),</span><br><span class="line">    store,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a> –&gt;</p>
--->
       
     </div>
     
@@ -338,15 +359,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/21/vue-ref获取DOM元素和组件/" rel="next" title="vue - ref获取DOM元素和组件">
+                <i class="fa fa-chevron-left"></i> vue - ref获取DOM元素和组件
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/11/ES6-let-const/" rel="prev" title="ES6-let/const">
-                ES6-let/const <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -398,8 +419,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,6 +471,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、vuex-是什么"><span class="nav-number">1.</span> <span class="nav-text">1、vuex 是什么?</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、使用"><span class="nav-number">2.</span> <span class="nav-text">2、使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
