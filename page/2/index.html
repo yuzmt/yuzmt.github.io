@@ -229,6 +229,255 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/ES6-箭头函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张梦婷">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/ES6-箭头函数/" itemprop="url">ES6-箭头函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T14:39:29+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：</p>
+<blockquote>
+<p>  1、不用写function关键字<br><br>  2、只能作为一个函数不能new，也不具有原型<br><br>  3、参数不能重复命名<br><br>  4、返回值可以不写return，但是有时需要配合{}<br><br>  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值 </p>
+</blockquote>
+<hr>
+<h4 id="1、ES5函数-VS-ES6箭头函数"><a href="#1、ES5函数-VS-ES6箭头函数" class="headerlink" title="1、ES5函数 VS ES6箭头函数"></a>1、ES5函数 VS ES6箭头函数</h4><pre><code>function sum(a, b) {
+    return a + b;
+}
+//或者
+var sum = function (a,b) {
+    return a + b;
+}
+
+//ES6的箭头函数
+let sum = (a, b) =&gt; {
+    return  a + b;
+}</code></pre><hr>
+<h4 id="2、箭头函数可以不写return"><a href="#2、箭头函数可以不写return" class="headerlink" title="2、箭头函数可以不写return"></a>2、箭头函数可以不写return</h4><pre><code>let sum = (a, b) =&gt; {
+    a + b;
+    //return undefined //这边如果不写return的话，这边相当于return了一个undefined
+}
+console.log(sum(10,20))//undefined</code></pre><p>要想得到具体的值，我们可以这样写</p>
+<pre><code>let sum = (a, b) =&gt; a + b;
+console.log(sum(10,20)) //30</code></pre><p>输出为数组</p>
+<pre><code>let sum = (a, b) =&gt; [a, b];
+console.log(sum(10,20)) //[10,20]</code></pre><p>输出为对象</p>
+<pre><code>let sum = (a, b) =&gt; {a:a,b:b};
+console.log(sum(10,20)) //error</code></pre><p>系统会将大括号识别成函数体的大括号</p>
+<pre><code>let sum = (a,b) =&gt; {
+    a:a,
+    b:b //然而函数里面并没有这样的表达式，所以会报错
+}</code></pre><p>如果非要输出为对象，我们该怎么办？</p>
+<pre><code>let sum = (a, b) =&gt; ({a:a,b:b});
+//只需将{}外面加一个()，变成表达式即可
+
+let sum = (a, b) =&gt; ({
+    a: a,
+    b: b
+});
+console.log(sum(10, 20))  //{a: 10, b: 20}</code></pre><hr>
+<h4 id="3、参数不能重复命名"><a href="#3、参数不能重复命名" class="headerlink" title="3、参数不能重复命名"></a>3、参数不能重复命名</h4><p>在ES6之前,下面的写法在控制台是不会报错的</p>
+<pre><code>function a(x,x) {}</code></pre><p>在ES6里面，控制台报错，告诉我们重复的名字是不允许出现的</p>
+<pre><code>let a = (x,x) =&gt; {}
+// Duplicate parameter name not allowed in this context</code></pre><hr>
+<h4 id="4、只能作为函数，不能new，也不具有原型"><a href="#4、只能作为函数，不能new，也不具有原型" class="headerlink" title="4、只能作为函数，不能new，也不具有原型"></a>4、只能作为函数，不能new，也不具有原型</h4><p>下面的例子，控制台告诉我们a不是一个构造函数</p>
+<pre><code>let a = (x, y) =&gt; {};
+new a();
+// a is not a constructor at demo.html:87</code></pre><p>在控制台输入 <code style="color:orange">a.prototype</code> 返回的值是 <code style="color:orange">undefined</code></p>
+<hr>
+<h4 id="5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值"><a href="#5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值" class="headerlink" title="5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值"></a>5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值</h4><h5 id="（1）arguments"><a href="#（1）arguments" class="headerlink" title="（1）arguments"></a>（1）arguments</h5><pre><code>function outer() {
+    console.log(arguments)
+    let sum = (a, b) =&gt; {
+        console.log(arguments, a, b);//这里的arguments和outer函数里面arguments是一样的
+    }
+    sum(1, 2)
+}
+outer(4, 6, 7)</code></pre><p> 如果不用箭头函数，内部函数如果需要外部函数的arguments，只能先将arguments赋值给arg这个变量，然后内部函数再调用</p>
+<pre><code>function outer() {
+    var arg = arguments;
+    return function() {
+        console.log(arg, arguments)
+    }
+}
+outer(4, 6, 7)(1, 2)</code></pre><p>如果是箭头函数，则不必这么麻烦</p>
+<pre><code>function outer() {
+    return () =&gt; {
+        console.log(arguments)
+    }
+}
+outer(4, 6, 7)(1, 2)</code></pre><h5 id="（2）this"><a href="#（2）this" class="headerlink" title="（2）this"></a>（2）this</h5><p>我们需要注意的，箭头函数里面的this在定义函数的时候就已经绑定了，而不是像非箭头函数在执行函数的时候绑定</p>
+<pre><code>let sum = () =&gt; {
+        console.log(this);  // this 指向 window
+    }
+sum()
+
+//此时外面没有非箭头函数，所以指向window
+ var a = &apos;outerObj&apos;;
+    let sum = () =&gt; {
+        console.log(this.a); // outerObj
+    }
+    var obj = {
+        a: &apos;innerObj&apos;,
+        fn: sum
+    }
+    obj.fn();
+
+//如果是正常的函数,谁调用this就指向谁
+ var obj = {
+        a: &apos;innerObj&apos;,
+        fn: sum
+    }
+
+    function sum() {
+        console.log(this.a); //innerObj
+    }
+    obj.fn()</code></pre><p>下面这个例子里，sum函数为箭头函数，所以就先看它外层是否有非箭头函数，显然这里面是存在的fn函数；那么sum里面的this就是由fn里面的this决定，因此，this.a指向的就是obj里面的a</p>
+<pre><code>var a = &apos;outerObj&apos;;
+let obj = {
+    a: &apos;innerObj&apos;,
+    fn() {
+        let sum = () =&gt; {
+            console.log(this.a) //innerObj
+        }
+        sum();
+    }
+}
+obj.fn()</code></pre><p>//在ES5中上面的写法如下：</p>
+<pre><code>var a = &apos;outerObj&apos;;
+let obj = {
+    a: &apos;innerObj&apos;,
+    fn:function fn() {
+        var _this = this;
+        var sum = function sum() {
+            console.log(_this.a) //innerObj
+        }
+        sum();
+    }
+}
+obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只需要记住<b style="color:orange">箭头函数里面的this在定义函数的时候就已经绑定了</b></p>
+<pre><code>var a = &apos;outerObj&apos;;
+    let obj = {
+        a: &apos;innerObj&apos;,
+        fn() {
+            let sum = () =&gt; { 
+                console.log(this) //innerObj
+            }
+            return sum;
+        }
+    }
+    let outerSum = obj.fn()
+    outerSum()</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/ES6-destructuring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -952,7 +1201,7 @@ PI.name = &apos;zz&apos;;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

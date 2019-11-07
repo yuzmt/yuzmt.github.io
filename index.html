@@ -1195,6 +1195,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/08/08/react-井字游戏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张梦婷">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/react-井字游戏/" itemprop="url">react-井字游戏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T14:15:59+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="父子组件之间是如何传值的"><a href="#父子组件之间是如何传值的" class="headerlink" title="父子组件之间是如何传值的"></a>父子组件之间是如何传值的</h3><p>在 react 的中文文档中,有一个井字格游戏的练习,以这个为例:</p>
+<p>这个 demo 里面有一个 Board 和一个 Square 的组件</p>
+<p><strong>Board</strong> - 父组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;Square value=&#123;i&#125; /&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">        	&lt;div&gt;</span><br><span class="line">            	&lt;div className="board-row"&gt;</span><br><span class="line">                    &#123;this.renderSquare(0)&#125;</span><br><span class="line">                    &#123;this.renderSquare(1)&#125;</span><br><span class="line">                    &#123;this.renderSquare(2)&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                //...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Square</strong> - 子组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Component</span>() </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">        	&lt;button&gt;</span><br><span class="line">            	&#123;<span class="keyword">this</span>.props.value&#125;</span><br><span class="line">            &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>父组件通过 <strong>props</strong> 向子组件传值, 所以当子组件向父组件取值的时候,需要通过 <strong>this.props</strong> , this.props.<strong>value</strong> 里面的这个value 是定义在父组件中的子组件(Square)身上的,所以才能获取到</p>
+<hr>
+<h3 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h3><p>这个井字格游戏需要把 9 个 Square 的值放在一个地方,以此来判断出胜利者</p>
+<p><strong>当遇到需要同时获取多个子组件数据,或者连个组件之间需要相互通信的情况时,需要把子组件的 state 数据提升至其 <code style="color:orange">共同的</code> 父组件中保存</strong></p>
+<p><strong>之后父组件可以通过 props 将数据状态传递到子组件当中, 这样应用当中所有组件的状态数据就能够更方便地同步共享了</strong></p>
+<p><img src="//yuzmt.github.io/2019/08/08/react-井字游戏/jingzigame.png" alt="jingzigame"></p>
+<p>下面的代码中, 从 Board 组件向 Square 组件中传递了两个 props 参数: value 和 onClick</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Board.js</span></span><br><span class="line">renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Square </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.square[i]&#125;</span><br><span class="line">                onClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; </span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>   当一个组件需要向父组件取值的时候, 就为其添上构造函数</p>
+   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;	<span class="class"><span class="keyword">class</span> <span class="title">Board</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">&gt;	    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">&gt;	        <span class="keyword">super</span>(props);</span><br><span class="line">&gt;	        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">&gt;	            square: <span class="built_in">Array</span>(<span class="number">9</span>).fill(<span class="literal">null</span>)</span><br><span class="line">&gt;	        &#125;</span><br><span class="line">&gt;	    &#125;</span><br><span class="line">&gt;	&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<h3 id="不可变性在-react-中非常重要"><a href="#不可变性在-react-中非常重要" class="headerlink" title="不可变性在 react 中非常重要"></a>不可变性在 react 中非常重要</h3><p>有两种改变数据的方式:</p>
+<ul>
+<li><p>直接修改变量的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player = &#123;<span class="attr">score</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'zhang'</span>&#125;;</span><br><span class="line">player.score = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// player 修改后的值为 &#123;score: 2, name: 'zhang'&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新数据替换旧数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player = &#123;<span class="attr">score</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'zhang'</span>&#125;;</span><br><span class="line"><span class="comment">//通过 Object.assign 方法,将player和&#123;score: 2&#125; 两个对象合并了到了空的对象中,同名属性的值会被后者的属性值替换掉</span></span><br><span class="line"><span class="keyword">var</span> newPlayer = <span class="built_in">Object</span>.assign(&#123;&#125;, player, &#123;<span class="attr">score</span>:<span class="number">2</span>&#125;)</span><br><span class="line"><span class="comment">//newPlayer &#123;score: 2, name: 'zhang'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以这样写:</span></span><br><span class="line"><span class="keyword">var</span> newPlayer = &#123;...player, <span class="attr">score</span>: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<hr>
+<p>有几点我们是需要注意的:</p>
+<ul>
+<li>state 对于每个组件来说都是私有的,所以不能直接通过子组件 Square 来更新 父组件的 Board 中的 state </li>
+<li>在 React 中，有一个命名规范，通常会将代表事件的监听 prop 命名为 <code>on[Event]</code>，将处理事件的监听方法命名为 <code>handle[Event]</code> 这样的格式。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1598,255 +1759,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/ES6-箭头函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张梦婷">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/15/ES6-箭头函数/" itemprop="url">ES6-箭头函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T14:39:29+08:00">
-                2019-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：</p>
-<blockquote>
-<p>  1、不用写function关键字<br><br>  2、只能作为一个函数不能new，也不具有原型<br><br>  3、参数不能重复命名<br><br>  4、返回值可以不写return，但是有时需要配合{}<br><br>  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值 </p>
-</blockquote>
-<hr>
-<h4 id="1、ES5函数-VS-ES6箭头函数"><a href="#1、ES5函数-VS-ES6箭头函数" class="headerlink" title="1、ES5函数 VS ES6箭头函数"></a>1、ES5函数 VS ES6箭头函数</h4><pre><code>function sum(a, b) {
-    return a + b;
-}
-//或者
-var sum = function (a,b) {
-    return a + b;
-}
-
-//ES6的箭头函数
-let sum = (a, b) =&gt; {
-    return  a + b;
-}</code></pre><hr>
-<h4 id="2、箭头函数可以不写return"><a href="#2、箭头函数可以不写return" class="headerlink" title="2、箭头函数可以不写return"></a>2、箭头函数可以不写return</h4><pre><code>let sum = (a, b) =&gt; {
-    a + b;
-    //return undefined //这边如果不写return的话，这边相当于return了一个undefined
-}
-console.log(sum(10,20))//undefined</code></pre><p>要想得到具体的值，我们可以这样写</p>
-<pre><code>let sum = (a, b) =&gt; a + b;
-console.log(sum(10,20)) //30</code></pre><p>输出为数组</p>
-<pre><code>let sum = (a, b) =&gt; [a, b];
-console.log(sum(10,20)) //[10,20]</code></pre><p>输出为对象</p>
-<pre><code>let sum = (a, b) =&gt; {a:a,b:b};
-console.log(sum(10,20)) //error</code></pre><p>系统会将大括号识别成函数体的大括号</p>
-<pre><code>let sum = (a,b) =&gt; {
-    a:a,
-    b:b //然而函数里面并没有这样的表达式，所以会报错
-}</code></pre><p>如果非要输出为对象，我们该怎么办？</p>
-<pre><code>let sum = (a, b) =&gt; ({a:a,b:b});
-//只需将{}外面加一个()，变成表达式即可
-
-let sum = (a, b) =&gt; ({
-    a: a,
-    b: b
-});
-console.log(sum(10, 20))  //{a: 10, b: 20}</code></pre><hr>
-<h4 id="3、参数不能重复命名"><a href="#3、参数不能重复命名" class="headerlink" title="3、参数不能重复命名"></a>3、参数不能重复命名</h4><p>在ES6之前,下面的写法在控制台是不会报错的</p>
-<pre><code>function a(x,x) {}</code></pre><p>在ES6里面，控制台报错，告诉我们重复的名字是不允许出现的</p>
-<pre><code>let a = (x,x) =&gt; {}
-// Duplicate parameter name not allowed in this context</code></pre><hr>
-<h4 id="4、只能作为函数，不能new，也不具有原型"><a href="#4、只能作为函数，不能new，也不具有原型" class="headerlink" title="4、只能作为函数，不能new，也不具有原型"></a>4、只能作为函数，不能new，也不具有原型</h4><p>下面的例子，控制台告诉我们a不是一个构造函数</p>
-<pre><code>let a = (x, y) =&gt; {};
-new a();
-// a is not a constructor at demo.html:87</code></pre><p>在控制台输入 <code style="color:orange">a.prototype</code> 返回的值是 <code style="color:orange">undefined</code></p>
-<hr>
-<h4 id="5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值"><a href="#5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值" class="headerlink" title="5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值"></a>5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值</h4><h5 id="（1）arguments"><a href="#（1）arguments" class="headerlink" title="（1）arguments"></a>（1）arguments</h5><pre><code>function outer() {
-    console.log(arguments)
-    let sum = (a, b) =&gt; {
-        console.log(arguments, a, b);//这里的arguments和outer函数里面arguments是一样的
-    }
-    sum(1, 2)
-}
-outer(4, 6, 7)</code></pre><p> 如果不用箭头函数，内部函数如果需要外部函数的arguments，只能先将arguments赋值给arg这个变量，然后内部函数再调用</p>
-<pre><code>function outer() {
-    var arg = arguments;
-    return function() {
-        console.log(arg, arguments)
-    }
-}
-outer(4, 6, 7)(1, 2)</code></pre><p>如果是箭头函数，则不必这么麻烦</p>
-<pre><code>function outer() {
-    return () =&gt; {
-        console.log(arguments)
-    }
-}
-outer(4, 6, 7)(1, 2)</code></pre><h5 id="（2）this"><a href="#（2）this" class="headerlink" title="（2）this"></a>（2）this</h5><p>我们需要注意的，箭头函数里面的this在定义函数的时候就已经绑定了，而不是像非箭头函数在执行函数的时候绑定</p>
-<pre><code>let sum = () =&gt; {
-        console.log(this);  // this 指向 window
-    }
-sum()
-
-//此时外面没有非箭头函数，所以指向window
- var a = &apos;outerObj&apos;;
-    let sum = () =&gt; {
-        console.log(this.a); // outerObj
-    }
-    var obj = {
-        a: &apos;innerObj&apos;,
-        fn: sum
-    }
-    obj.fn();
-
-//如果是正常的函数,谁调用this就指向谁
- var obj = {
-        a: &apos;innerObj&apos;,
-        fn: sum
-    }
-
-    function sum() {
-        console.log(this.a); //innerObj
-    }
-    obj.fn()</code></pre><p>下面这个例子里，sum函数为箭头函数，所以就先看它外层是否有非箭头函数，显然这里面是存在的fn函数；那么sum里面的this就是由fn里面的this决定，因此，this.a指向的就是obj里面的a</p>
-<pre><code>var a = &apos;outerObj&apos;;
-let obj = {
-    a: &apos;innerObj&apos;,
-    fn() {
-        let sum = () =&gt; {
-            console.log(this.a) //innerObj
-        }
-        sum();
-    }
-}
-obj.fn()</code></pre><p>//在ES5中上面的写法如下：</p>
-<pre><code>var a = &apos;outerObj&apos;;
-let obj = {
-    a: &apos;innerObj&apos;,
-    fn:function fn() {
-        var _this = this;
-        var sum = function sum() {
-            console.log(_this.a) //innerObj
-        }
-        sum();
-    }
-}
-obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只需要记住<b style="color:orange">箭头函数里面的this在定义函数的时候就已经绑定了</b></p>
-<pre><code>var a = &apos;outerObj&apos;;
-    let obj = {
-        a: &apos;innerObj&apos;,
-        fn() {
-            let sum = () =&gt; { 
-                console.log(this) //innerObj
-            }
-            return sum;
-        }
-    }
-    let outerSum = obj.fn()
-    outerSum()</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1897,7 +1809,7 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

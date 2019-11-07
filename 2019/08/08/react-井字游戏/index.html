@@ -81,17 +81,17 @@
 
 <meta name="description" content="父子组件之间是如何传值的在 react 的中文文档中,有一个井字格游戏的练习,以这个为例: 这个 demo 里面有一个 Board 和一个 Square 的组件 Board - 父组件 1234567891011121314151617class Board extends Component &amp;#123;    renderSquare(i) &amp;#123;        return &amp;lt;S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-井字小游戏总结">
-<meta property="og:url" content="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/index.html">
+<meta property="og:title" content="react-井字游戏">
+<meta property="og:url" content="https://yuzmt.github.io/2019/08/08/react-井字游戏/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="父子组件之间是如何传值的在 react 的中文文档中,有一个井字格游戏的练习,以这个为例: 这个 demo 里面有一个 Board 和一个 Square 的组件 Board - 父组件 1234567891011121314151617class Board extends Component &amp;#123;    renderSquare(i) &amp;#123;        return &amp;lt;S">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/jingzigame.png">
-<meta property="og:updated_time" content="2019-11-07T07:07:08.953Z">
+<meta property="og:image" content="https://yuzmt.github.io/2019/08/08/react-井字游戏/jingzigame.png">
+<meta property="og:updated_time" content="2019-11-07T07:18:14.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-井字小游戏总结">
+<meta name="twitter:title" content="react-井字游戏">
 <meta name="twitter:description" content="父子组件之间是如何传值的在 react 的中文文档中,有一个井字格游戏的练习,以这个为例: 这个 demo 里面有一个 Board 和一个 Square 的组件 Board - 父组件 1234567891011121314151617class Board extends Component &amp;#123;    renderSquare(i) &amp;#123;        return &amp;lt;S">
-<meta name="twitter:image" content="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/jingzigame.png">
+<meta name="twitter:image" content="https://yuzmt.github.io/2019/08/08/react-井字游戏/jingzigame.png">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/">
+  <link rel="canonical" href="https://yuzmt.github.io/2019/08/08/react-井字游戏/">
 
 
 
 
 
-  <title>react-井字小游戏总结 | Hexo</title>
+  <title>react-井字游戏 | Hexo</title>
   
 
 
@@ -234,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/08/08/react-井字小游戏总结/">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/08/08/react-井字游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张梦婷">
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react-井字小游戏总结</h1>
+          <h1 class="post-title" itemprop="name headline">react-井字游戏</h1>
         
 
         <div class="post-meta">
@@ -314,7 +314,7 @@
 <h3 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h3><p>这个井字格游戏需要把 9 个 Square 的值放在一个地方,以此来判断出胜利者</p>
 <p><strong>当遇到需要同时获取多个子组件数据,或者连个组件之间需要相互通信的情况时,需要把子组件的 state 数据提升至其 <code style="color:orange">共同的</code> 父组件中保存</strong></p>
 <p><strong>之后父组件可以通过 props 将数据状态传递到子组件当中, 这样应用当中所有组件的状态数据就能够更方便地同步共享了</strong></p>
-<p><img src="//yuzmt.github.io/2019/08/08/react-井字小游戏总结/jingzigame.png" alt="jingzigame"></p>
+<p><img src="//yuzmt.github.io/2019/08/08/react-井字游戏/jingzigame.png" alt="jingzigame"></p>
 <p>下面的代码中, 从 Board 组件向 Square 组件中传递了两个 props 参数: value 和 onClick</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Board.js</span></span><br><span class="line">renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Square </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.square[i]&#125;</span><br><span class="line">                onClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; </span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
@@ -367,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/export-与-export-default-的区别/" rel="next" title="export 与 export default 的区别">
-                <i class="fa fa-chevron-left"></i> export 与 export default 的区别
+              <a href="/2019/08/08/react-井字小游戏总结/" rel="next" title="react-井字小游戏总结">
+                <i class="fa fa-chevron-left"></i> react-井字小游戏总结
               </a>
             
           </div>
@@ -377,8 +377,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/08/react-井字游戏/" rel="prev" title="react-井字游戏">
-                react-井字游戏 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/16/vue-样式的使用/" rel="prev" title="vue - 样式的使用">
+                vue - 样式的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
