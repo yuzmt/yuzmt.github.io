@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="父子组件之间是如何传值的在 react 的中文文档中,有一个井字格游戏的练习,以这个为例: 这个 demo 里面有一个 Board 和一个 Square 的组件 Board - 父组件 1234567891011121314151617class Board extends Component &amp;#123;    renderSquare(i) &amp;#123;        return &amp;lt;S">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/.com//jingzigame.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/react-父子组件之间传值的问题/jingzigame.png">
 <meta property="og:updated_time" content="2019-08-08T10:42:14.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-井字小游戏总结">
 <meta name="twitter:description" content="父子组件之间是如何传值的在 react 的中文文档中,有一个井字格游戏的练习,以这个为例: 这个 demo 里面有一个 Board 和一个 Square 的组件 Board - 父组件 1234567891011121314151617class Board extends Component &amp;#123;    renderSquare(i) &amp;#123;        return &amp;lt;S">
-<meta name="twitter:image" content="http://yoursite.com/.com//jingzigame.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/08/react-父子组件之间传值的问题/jingzigame.png">
 
 
 
@@ -314,7 +314,7 @@
 <h3 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h3><p>这个井字格游戏需要把 9 个 Square 的值放在一个地方,以此来判断出胜利者</p>
 <p><strong>当遇到需要同时获取多个子组件数据,或者连个组件之间需要相互通信的情况时,需要把子组件的 state 数据提升至其 <code style="color:orange">共同的</code> 父组件中保存</strong></p>
 <p><strong>之后父组件可以通过 props 将数据状态传递到子组件当中, 这样应用当中所有组件的状态数据就能够更方便地同步共享了</strong></p>
-<p><img src="/.com//jingzigame.png" alt="jingzigame"></p>
+<p><img src="//yoursite.com/2019/08/08/react-父子组件之间传值的问题/jingzigame.png" alt="jingzigame"></p>
 <p>下面的代码中, 从 Board 组件向 Square 组件中传递了两个 props 参数: value 和 onClick</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Board.js</span></span><br><span class="line">renderSquare(i) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Square </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.square[i]&#125;</span><br><span class="line">                onClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; </span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
