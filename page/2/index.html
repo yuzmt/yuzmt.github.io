@@ -500,6 +500,167 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yzmt">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/headImg.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/git/" itemprop="url">git的常见使用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T13:56:37+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="git的基本命令"><a href="#git的基本命令" class="headerlink" title="git的基本命令"></a>git的基本命令</h5><ul>
+<li><p><code>git clone</code></p>
+<p>将远程服务器的git库中的代码克隆岛本地的当前目录</p>
+</li>
+</ul>
+<p>将远程服务器的git库中的代码克隆岛本地的当前目录</p>
+<ul>
+<li><code>git pull</code> </li>
+</ul>
+<p>​      <code>git pull origin develop</code></p>
+<p>​      当本地已经存在相应的git库时，可以使用 git pull 从服务器同步最新的库到本地</p>
+<ul>
+<li><code>git checkout develop</code></li>
+</ul>
+<p>​       切换到 develop 分支</p>
+<p>​       <code>git checkout -b zmt</code>    创建分支 zmt, 并切换到 zmt 分支</p>
+<p>​       <code>git checkout -b zmt origin/develop</code>     创建 zmt 分支并拉取 develop 分支</p>
+<ul>
+<li><p><code>git add .</code>     提交当前修改到本地缓存</p>
+<p><code>git add (文件名称)</code> 提交单一文件</p>
+</li>
+<li><p><code>git commit -m &#39;...&#39;</code>    提交本地缓存修改的内容到本地git库</p>
+</li>
+<li><p><code>git merge zmt</code>    将 zmt 分支的内容合并到当前分支</p>
+<p>在做merge和push的时候，会出现代码冲突（conflict）的问题，git会自动合并可以合并的冲突，无法合并的冲突，需要手工进行冲突合并</p>
+</li>
+<li><p><code>git push</code>将本地库代码推到服务器的git库</p>
+</li>
+</ul>
+<h5 id="其他常用的git命令"><a href="#其他常用的git命令" class="headerlink" title="其他常用的git命令"></a>其他常用的git命令</h5><ul>
+<li><p><code>git status</code>     可以查看当前分支的状态，如代码是否被修改、新增的代码等</p>
+</li>
+<li><p><code>git branch</code> `查看git库分支</p>
+<p><code>git branch -A</code> `查看远程库有哪些分支</p>
+</li>
+<li><p><code>git log</code>      查看git库日志</p>
+</li>
+<li><p><code>git reset</code>    回退到git库的历史提交commit</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/ES6-destructuring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -672,6 +833,160 @@ let { log, sin, cos } = Math;
 // 例二
 const { log } = console;
 log(&apos;hello&apos;) // hello</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/12/手动封装ajax兼容性写法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yzmt">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/headImg.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/12/手动封装ajax兼容性写法/" itemprop="url">手动封装ajax兼容性写法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-12T22:10:19+08:00">
+                2019-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ajax 用 JavaScript 以一部的形式操作 xml (现在操作的是 json)</p>
+<h3 id="流程原理"><a href="#流程原理" class="headerlink" title="流程原理"></a>流程原理</h3><p>其实说到底, ajax 类似于定外卖, 大概的流程如下:</p>
+<h4 id="形象比喻——定外卖"><a href="#形象比喻——定外卖" class="headerlink" title="形象比喻——定外卖"></a>形象比喻——定外卖</h4><ul>
+<li>第一步，定外卖我们需要一个<strong>手机</strong>或者一台<strong>电脑</strong></li>
+<li>第二步，我们要选择在什么平台上去定, 比如, <strong>美团, 饿了么</strong>等</li>
+<li>第三步，打开APP，寻找商家，再寻找商品；</li>
+<li>第四步，下单（可能还需要备注一些信息，加辣，不要葱）</li>
+<li>第五步，监听外卖信息，查看我们的外卖是否送出呀，还有多久送达呀等</li>
+<li>第六步，开门验货，如果不是自己的订单，可能还需要进一步处理</li>
+</ul>
+<h4 id="实际流程"><a href="#实际流程" class="headerlink" title="实际流程"></a>实际流程</h4><ul>
+<li><p>第一步，当然得有一个浏览器</p>
+</li>
+<li><p>第二步，我们需要一个创建一个 ajax 对象，这里我们需要考虑一下浏览器的兼容性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest(); <span class="comment">// IE6 以上</span></span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Mricosoft.XMLHTTP"</span>); <span class="comment">// IE6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三步，ajax.open(method, url, true)，建立对服务器的调用</p>
+<ul>
+<li>method参数可以是 get 或者 post</li>
+<li>url 参数可以是相对 url 或者绝对 url</li>
+<li>这里的true表示是否异步，所以肯定是true呀</li>
+</ul>
+</li>
+<li><p>第四步，那就是发送我们的请求，ajax.send()</p>
+</li>
+<li><p>第五步，通过 onreadystatechange 来监听异步对象的状态</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.status == <span class="number">200</span> &amp;&amp; xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">       	<span class="comment">// ... 拿到返回的数据</span></span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// readyStatus </span></span><br><span class="line"><span class="comment">// 值为0表示未初始化,未调用send()方法</span></span><br><span class="line"><span class="comment">// 值为1表示读取中,已调用send()方法, 正在发送请求</span></span><br><span class="line"><span class="comment">// 值为2表示已读取,send()方法执行完成,接收到全部的响应内容</span></span><br><span class="line"><span class="comment">// 值为3表示交互中,正在解析响应内容</span></span><br><span class="line"><span class="comment">// 值为4表示完成,响应内容解析完成</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第六步，通过 status 查看状态（200，404等）</li>
+</ul>
+
           
         
       
@@ -1233,7 +1548,7 @@ PI.name = &apos;zz&apos;;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1241,6 +1556,15 @@ PI.name = &apos;zz&apos;;
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
