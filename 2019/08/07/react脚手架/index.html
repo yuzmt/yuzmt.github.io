@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="react,">
 
 
 
@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：    1、不用写function关键字  2、只能作为一个函数不能new，也不具有原型  3、参数不能重复命名  4、返回值可以不写return，但是有时需要配合{}  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值    1、ES5函数 VS ES6箭头函数functi">
+<meta name="description" content="一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!输入 create-react-app my-demo 之后,  报错且 my-demo 文件夹里面只有一个 yarn-error.log 文件  原因: 因为之前设置了 npm 的注册 URL 为淘宝的, 所以有这个错误(一脸懵*) 现在还原为 https://registry.npmjs.org/ 就可">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6-箭头函数">
-<meta property="og:url" content="https://yuzmt.github.io/2019/07/15/ES6-箭头函数/index.html">
+<meta property="og:title" content="react脚手架相关问题">
+<meta property="og:url" content="https://yuzmt.github.io/2019/08/07/react脚手架/index.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：    1、不用写function关键字  2、只能作为一个函数不能new，也不具有原型  3、参数不能重复命名  4、返回值可以不写return，但是有时需要配合{}  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值    1、ES5函数 VS ES6箭头函数functi">
+<meta property="og:description" content="一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!输入 create-react-app my-demo 之后,  报错且 my-demo 文件夹里面只有一个 yarn-error.log 文件  原因: 因为之前设置了 npm 的注册 URL 为淘宝的, 所以有这个错误(一脸懵*) 现在还原为 https://registry.npmjs.org/ 就可">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-17T06:05:49.068Z">
+<meta property="og:image" content="https://yuzmt.github.io/2019/08/07/react脚手架/create-react-app.png">
+<meta property="og:image" content="https://yuzmt.github.io/2019/08/07/react脚手架/react-less1.png">
+<meta property="og:image" content="https://yuzmt.github.io/2019/08/07/react脚手架/react-less2.png">
+<meta property="og:image" content="https://yuzmt.github.io/2019/08/07/react脚手架/babel.png">
+<meta property="og:updated_time" content="2019-11-11T05:18:16.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6-箭头函数">
-<meta name="twitter:description" content="在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：    1、不用写function关键字  2、只能作为一个函数不能new，也不具有原型  3、参数不能重复命名  4、返回值可以不写return，但是有时需要配合{}  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值    1、ES5函数 VS ES6箭头函数functi">
+<meta name="twitter:title" content="react脚手架相关问题">
+<meta name="twitter:description" content="一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!输入 create-react-app my-demo 之后,  报错且 my-demo 文件夹里面只有一个 yarn-error.log 文件  原因: 因为之前设置了 npm 的注册 URL 为淘宝的, 所以有这个错误(一脸懵*) 现在还原为 https://registry.npmjs.org/ 就可">
+<meta name="twitter:image" content="https://yuzmt.github.io/2019/08/07/react脚手架/create-react-app.png">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://yuzmt.github.io/2019/07/15/ES6-箭头函数/">
+  <link rel="canonical" href="https://yuzmt.github.io/2019/08/07/react脚手架/">
 
 
 
 
 
-  <title>ES6-箭头函数 | My World</title>
+  <title>react脚手架相关问题 | My World</title>
   
 
 
@@ -252,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/07/15/ES6-箭头函数/">
+    <link itemprop="mainEntityOfPage" href="https://yuzmt.github.io/2019/08/07/react脚手架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yzmt">
@@ -269,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6-箭头函数</h1>
+          <h1 class="post-title" itemprop="name headline">react脚手架相关问题</h1>
         
 
         <div class="post-meta">
@@ -281,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T14:39:29+08:00">
-                2019-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-07T13:06:26+08:00">
+                2019-08-07
               </time>
             
 
@@ -324,137 +330,53 @@
       
 
       
-        <p>在讨论箭头函数之前，我们可以先了解一下，它具有哪些特点：</p>
+        <h3 id="一、脚手架创建-react-项目的时候-在环境以及安装包都没有问题的前提下-报错"><a href="#一、脚手架创建-react-项目的时候-在环境以及安装包都没有问题的前提下-报错" class="headerlink" title="一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!"></a>一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!</h3><p>输入 <code>create-react-app my-demo</code> 之后,  报错且 my-demo 文件夹里面只有一个 yarn-error.log 文件</p>
+<p><img src="//yuzmt.github.io/2019/08/07/react脚手架/create-react-app.png" alt="create-react-app"></p>
+<p><strong>原因:</strong> 因为之前设置了 npm 的注册 URL 为淘宝的, 所以有这个错误(一脸懵*)</p>
+<p>现在还原为 <code>https://registry.npmjs.org/</code> 就可以了</p>
+<p>命令如下: </p>
+<p><code>npm config set registry https://registry.npmjs.org/</code></p>
+<p>然后正常执行就可以了</p>
+<h3 id="二、用-react-脚手架构建项目-执行-yarn-eject-暴露-webpack-的配置文件时报错"><a href="#二、用-react-脚手架构建项目-执行-yarn-eject-暴露-webpack-的配置文件时报错" class="headerlink" title="二、用 react 脚手架构建项目, 执行 yarn eject 暴露 webpack 的配置文件时报错????"></a>二、用 react 脚手架构建项目, 执行 yarn eject 暴露 webpack 的配置文件时报错????</h3><p>![yarn eject](react脚手架/yarn eject.png)</p>
 <blockquote>
-<p>  1、不用写function关键字<br><br>  2、只能作为一个函数不能new，也不具有原型<br><br>  3、参数不能重复命名<br><br>  4、返回值可以不写return，但是有时需要配合{}<br><br>  5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值 </p>
+<p>This git repository has untracked files or uncommitted changes:</p>
+<p>这个git存储库有未跟踪的文件或未提交的更改</p>
 </blockquote>
-<hr>
-<h4 id="1、ES5函数-VS-ES6箭头函数"><a href="#1、ES5函数-VS-ES6箭头函数" class="headerlink" title="1、ES5函数 VS ES6箭头函数"></a>1、ES5函数 VS ES6箭头函数</h4><pre><code>function sum(a, b) {
-    return a + b;
-}
-//或者
-var sum = function (a,b) {
-    return a + b;
-}
+<p><strong>解决办法</strong>: </p>
+<p><code>git add .</code> (add 和 .  之间有空格的)</p>
+<p><code>git commit -m &quot;init&quot;</code></p>
+<p><code>yarn eject</code></p>
+<h3 id="三、react-脚手架创建项目-编译-less-文件的一系列操作"><a href="#三、react-脚手架创建项目-编译-less-文件的一系列操作" class="headerlink" title="三、react 脚手架创建项目, 编译 less 文件的一系列操作!!!!"></a>三、react 脚手架创建项目, 编译 less 文件的一系列操作!!!!</h3><h4 id="1、创建项目并运行"><a href="#1、创建项目并运行" class="headerlink" title="1、创建项目并运行"></a>1、创建项目并运行</h4><p><code>create-react-app react-less</code></p>
+<p><code>cd react-less</code></p>
+<p><code>yarn start</code></p>
+<h4 id="2、暴露需要配置的文件-config-这个操作时不可逆的"><a href="#2、暴露需要配置的文件-config-这个操作时不可逆的" class="headerlink" title="2、暴露需要配置的文件 config (这个操作时不可逆的)"></a>2、暴露需要配置的文件 config (这个操作时不可逆的)</h4><p><code>yarn eject</code></p>
+<p>有时候, 执行上面这个命令没有效果, 会提示 <strong>This git repository has untracked files or uncommitted changes</strong> , 此时执行如下命令即可</p>
+<p><code>git add .</code></p>
+<p><code>git commit -m &quot;init&quot;</code></p>
+<p><code>yarn eject</code></p>
+<blockquote>
+<p>我们也可以不暴露文件,  找到 node_modules/react-scripts/config/webpack.config.js 同样可以;</p>
+<p>值得注意的是, 这种方式在安装依赖的时候, 一定要切换到 <strong>react-scripts</strong> 这个目录下下载</p>
+</blockquote>
+<h4 id="3、安装-less-less-loader-依赖"><a href="#3、安装-less-less-loader-依赖" class="headerlink" title="3、安装 less less-loader 依赖"></a>3、安装 less less-loader 依赖</h4><p><code>yarn add less less-loader</code></p>
+<h4 id="4、修改-webpack-的配置"><a href="#4、修改-webpack-的配置" class="headerlink" title="4、修改 webpack 的配置"></a>4、修改 webpack 的配置</h4><p>在 webpack.config.js 文件找到关于 css 文件的加载规则</p>
+<p>修改下面两个地方</p>
+<p><img src="//yuzmt.github.io/2019/08/07/react脚手架/react-less1.png" alt="react-less1"></p>
+<p><img src="//yuzmt.github.io/2019/08/07/react脚手架/react-less2.png" alt="react-less2"></p>
+<blockquote>
+<p>每次修改完配置文件都需要 <strong>yarn start</strong></p>
+</blockquote>
+<h5 id="还没完-扶我起来-这种情况有时并没有出现"><a href="#还没完-扶我起来-这种情况有时并没有出现" class="headerlink" title="还没完, 扶我起来~(这种情况有时并没有出现)"></a>还没完, 扶我起来~(这种情况有时并没有出现)</h5><p>当我们安装好依赖, 修改好配置, 有时它会接着报错</p>
+<p><img src="//yuzmt.github.io/2019/08/07/react脚手架/babel.png" alt="babel"></p>
+<p>我们的常规操作就是安装这个缺失的模块, 但是会源源不断的报错, 我们就会源源不断的安装,  很难搞的….</p>
+<p>所以</p>
+<p><code>npm install</code></p>
+<p>解决一切</p>
+<h5 id="继续-有时会出现"><a href="#继续-有时会出现" class="headerlink" title="继续 (有时会出现)"></a>继续 (有时会出现)</h5><p>![babel runtime](react脚手架/babel runtime.png)</p>
+<p>执行这个命令</p>
+<p><code>npm add @babel/runtime</code></p>
+<p>此时, 一切就 OK 啦!</p>
 
-//ES6的箭头函数
-let sum = (a, b) =&gt; {
-    return  a + b;
-}</code></pre><hr>
-<h4 id="2、箭头函数可以不写return"><a href="#2、箭头函数可以不写return" class="headerlink" title="2、箭头函数可以不写return"></a>2、箭头函数可以不写return</h4><pre><code>let sum = (a, b) =&gt; {
-    a + b;
-    //return undefined //这边如果不写return的话，这边相当于return了一个undefined
-}
-console.log(sum(10,20))//undefined</code></pre><p>要想得到具体的值，我们可以这样写</p>
-<pre><code>let sum = (a, b) =&gt; a + b;
-console.log(sum(10,20)) //30</code></pre><p>输出为数组</p>
-<pre><code>let sum = (a, b) =&gt; [a, b];
-console.log(sum(10,20)) //[10,20]</code></pre><p>输出为对象</p>
-<pre><code>let sum = (a, b) =&gt; {a:a,b:b};
-console.log(sum(10,20)) //error</code></pre><p>系统会将大括号识别成函数体的大括号</p>
-<pre><code>let sum = (a,b) =&gt; {
-    a:a,
-    b:b //然而函数里面并没有这样的表达式，所以会报错
-}</code></pre><p>如果非要输出为对象，我们该怎么办？</p>
-<pre><code>let sum = (a, b) =&gt; ({a:a,b:b});
-//只需将{}外面加一个()，变成表达式即可
-
-let sum = (a, b) =&gt; ({
-    a: a,
-    b: b
-});
-console.log(sum(10, 20))  //{a: 10, b: 20}</code></pre><hr>
-<h4 id="3、参数不能重复命名"><a href="#3、参数不能重复命名" class="headerlink" title="3、参数不能重复命名"></a>3、参数不能重复命名</h4><p>在ES6之前,下面的写法在控制台是不会报错的</p>
-<pre><code>function a(x,x) {}</code></pre><p>在ES6里面，控制台报错，告诉我们重复的名字是不允许出现的</p>
-<pre><code>let a = (x,x) =&gt; {}
-// Duplicate parameter name not allowed in this context</code></pre><hr>
-<h4 id="4、只能作为函数，不能new，也不具有原型"><a href="#4、只能作为函数，不能new，也不具有原型" class="headerlink" title="4、只能作为函数，不能new，也不具有原型"></a>4、只能作为函数，不能new，也不具有原型</h4><p>下面的例子，控制台告诉我们a不是一个构造函数</p>
-<pre><code>let a = (x, y) =&gt; {};
-new a();
-// a is not a constructor at demo.html:87</code></pre><p>在控制台输入 <code style="color:orange">a.prototype</code> 返回的值是 <code style="color:orange">undefined</code></p>
-<hr>
-<h4 id="5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值"><a href="#5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值" class="headerlink" title="5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值"></a>5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值</h4><h5 id="（1）arguments"><a href="#（1）arguments" class="headerlink" title="（1）arguments"></a>（1）arguments</h5><pre><code>function outer() {
-    console.log(arguments)
-    let sum = (a, b) =&gt; {
-        console.log(arguments, a, b);//这里的arguments和outer函数里面arguments是一样的
-    }
-    sum(1, 2)
-}
-outer(4, 6, 7)</code></pre><p> 如果不用箭头函数，内部函数如果需要外部函数的arguments，只能先将arguments赋值给arg这个变量，然后内部函数再调用</p>
-<pre><code>function outer() {
-    var arg = arguments;
-    return function() {
-        console.log(arg, arguments)
-    }
-}
-outer(4, 6, 7)(1, 2)</code></pre><p>如果是箭头函数，则不必这么麻烦</p>
-<pre><code>function outer() {
-    return () =&gt; {
-        console.log(arguments)
-    }
-}
-outer(4, 6, 7)(1, 2)</code></pre><h5 id="（2）this"><a href="#（2）this" class="headerlink" title="（2）this"></a>（2）this</h5><p>我们需要注意的，箭头函数里面的this在定义函数的时候就已经绑定了，而不是像非箭头函数在执行函数的时候绑定</p>
-<pre><code>let sum = () =&gt; {
-        console.log(this);  // this 指向 window
-    }
-sum()
-
-//此时外面没有非箭头函数，所以指向window
- var a = &apos;outerObj&apos;;
-    let sum = () =&gt; {
-        console.log(this.a); // outerObj
-    }
-    var obj = {
-        a: &apos;innerObj&apos;,
-        fn: sum
-    }
-    obj.fn();
-
-//如果是正常的函数,谁调用this就指向谁
- var obj = {
-        a: &apos;innerObj&apos;,
-        fn: sum
-    }
-
-    function sum() {
-        console.log(this.a); //innerObj
-    }
-    obj.fn()</code></pre><p>下面这个例子里，sum函数为箭头函数，所以就先看它外层是否有非箭头函数，显然这里面是存在的fn函数；那么sum里面的this就是由fn里面的this决定，因此，this.a指向的就是obj里面的a</p>
-<pre><code>var a = &apos;outerObj&apos;;
-let obj = {
-    a: &apos;innerObj&apos;,
-    fn() {
-        let sum = () =&gt; {
-            console.log(this.a) //innerObj
-        }
-        sum();
-    }
-}
-obj.fn()</code></pre><p>//在ES5中上面的写法如下：</p>
-<pre><code>var a = &apos;outerObj&apos;;
-let obj = {
-    a: &apos;innerObj&apos;,
-    fn:function fn() {
-        var _this = this;
-        var sum = function sum() {
-            console.log(_this.a) //innerObj
-        }
-        sum();
-    }
-}
-obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只需要记住<b style="color:orange">箭头函数里面的this在定义函数的时候就已经绑定了</b></p>
-<pre><code>var a = &apos;outerObj&apos;;
-    let obj = {
-        a: &apos;innerObj&apos;,
-        fn() {
-            let sum = () =&gt; { 
-                console.log(this) //innerObj
-            }
-            return sum;
-        }
-    }
-    let outerSum = obj.fn()
-    outerSum()</code></pre>
       
     </div>
     
@@ -469,6 +391,12 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
 
       
       
@@ -478,8 +406,8 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/git/" rel="next" title="git的常见使用命令">
-                <i class="fa fa-chevron-left"></i> git的常见使用命令
+              <a href="/2019/07/15/缓存的方式/" rel="next" title="cookie、sessionStorage、localStorage 的区别：">
+                <i class="fa fa-chevron-left"></i> cookie、sessionStorage、localStorage 的区别：
               </a>
             
           </div>
@@ -488,8 +416,8 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/15/缓存的方式/" rel="prev" title="cookie、sessionStorage、localStorage 的区别：">
-                cookie、sessionStorage、localStorage 的区别： <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/08/export-与-export-default-的区别/" rel="prev" title="export 与 export default 的区别">
+                export 与 export default 的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +543,7 @@ obj.fn()</code></pre><p>就算把sum函数return到外部也是不好使的,只�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、ES5函数-VS-ES6箭头函数"><span class="nav-number">1.</span> <span class="nav-text">1、ES5函数 VS ES6箭头函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、箭头函数可以不写return"><span class="nav-number">2.</span> <span class="nav-text">2、箭头函数可以不写return</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、参数不能重复命名"><span class="nav-number">3.</span> <span class="nav-text">3、参数不能重复命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、只能作为函数，不能new，也不具有原型"><span class="nav-number">4.</span> <span class="nav-text">4、只能作为函数，不能new，也不具有原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、内部arguments-this-由定义时外围最接近一层的非箭头函数的arguments-和-this-决定其值"><span class="nav-number">5.</span> <span class="nav-text">5、内部arguments this 由定义时外围最接近一层的非箭头函数的arguments 和 this 决定其值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）arguments"><span class="nav-number">5.1.</span> <span class="nav-text">（1）arguments</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）this"><span class="nav-number">5.2.</span> <span class="nav-text">（2）this</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、脚手架创建-react-项目的时候-在环境以及安装包都没有问题的前提下-报错"><span class="nav-number">1.</span> <span class="nav-text">一、脚手架创建 react 项目的时候, 在环境以及安装包都没有问题的前提下, 报错?!!!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、用-react-脚手架构建项目-执行-yarn-eject-暴露-webpack-的配置文件时报错"><span class="nav-number">2.</span> <span class="nav-text">二、用 react 脚手架构建项目, 执行 yarn eject 暴露 webpack 的配置文件时报错????</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、react-脚手架创建项目-编译-less-文件的一系列操作"><span class="nav-number">3.</span> <span class="nav-text">三、react 脚手架创建项目, 编译 less 文件的一系列操作!!!!</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、创建项目并运行"><span class="nav-number">3.1.</span> <span class="nav-text">1、创建项目并运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、暴露需要配置的文件-config-这个操作时不可逆的"><span class="nav-number">3.2.</span> <span class="nav-text">2、暴露需要配置的文件 config (这个操作时不可逆的)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装-less-less-loader-依赖"><span class="nav-number">3.3.</span> <span class="nav-text">3、安装 less less-loader 依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、修改-webpack-的配置"><span class="nav-number">3.4.</span> <span class="nav-text">4、修改 webpack 的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#还没完-扶我起来-这种情况有时并没有出现"><span class="nav-number">3.4.1.</span> <span class="nav-text">还没完, 扶我起来~(这种情况有时并没有出现)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#继续-有时会出现"><span class="nav-number">3.4.2.</span> <span class="nav-text">继续 (有时会出现)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
